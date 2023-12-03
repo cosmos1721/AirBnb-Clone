@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import "./styles.css";
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -20,13 +20,14 @@ export default function BasicMenu() {
     <div>
       <div
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick} className='profile-menu-flex'
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+        className="profile-menu-flex"
       >
-         <MenuRoundedIcon />
-            <AccountCircleRoundedIcon />
+        <MenuRoundedIcon />
+        <AccountCircleRoundedIcon />
       </div>
       <Menu
         id="basic-menu"
@@ -34,21 +35,38 @@ export default function BasicMenu() {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
-        sx={{".MuiPaper-root": {
-            borderRadius: "1rem",
-            marginTop: "1rem",
+        sx={{
+          ".MuiPaper-root": {
             minWidth: "200px",
-            boxShadow: "none"}}}
-
+            borderRadius: "1rem",
+            boxShadow: "0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%)",
+          },
+        }}
       >
-        <MenuItem className="menu-items" onClick={handleClose}>Signup</MenuItem>
-        <MenuItem className="menu-items" onClick={handleClose}>Login</MenuItem>
-        <div style={{height: "1px", backgroundColor: "var(--grey)", width: "100%"}}/>
-        <MenuItem className="menu-items" onClick={handleClose}>Airbnb your home</MenuItem>
-        <MenuItem className="menu-items" onClick={handleClose}>Host an experience</MenuItem>
-        <MenuItem className="menu-items" onClick={handleClose}>Help</MenuItem>
+        <MenuItem className="menu-items" onClick={handleClose}>
+          Signup
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Login
+        </MenuItem>
+        <div
+          style={{
+            height: "1px",
+            backgroundColor: "var(--grey)",
+            width: "100%",
+          }}
+        />
+        <MenuItem onClick={handleClose} className="menu-items">
+          Airbnb Your Home
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Host an experience
+        </MenuItem>
+        <MenuItem onClick={handleClose} className="menu-items">
+          Help
+        </MenuItem>
       </Menu>
     </div>
   );
